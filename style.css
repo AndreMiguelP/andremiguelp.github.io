@@ -1,28 +1,153 @@
+/* --- Reset e Estilos Globais --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: black; 
-    color: white; 
+    background-color: #080808;
+    color: #ffffff;
 }
+
+/* Variáveis de Cores */
+:root {
+    --main-color: #007BFF; /* Azul Neon */
+    --text-color: #fff;
+    --bg-color: #080808;
+    --card-bg: #1f1f1f;
+}
+
+section {
+    padding: 100px 10%; /* Espaçamento padrão */
+}
+
+/* --- Navbar Customizada --- */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+/* --- Seção Home --- */
 .home {
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 81px 10%;
-    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 5rem;
+    flex-wrap: wrap-reverse;
 }
+
+.home-content {
+    flex: 1 1 300px;
+    text-align: left;
+}
+
+/* Animações de Entrada */
+.home-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s;
+}
+
 .home-content h1 {
-    font-size: 3rem;
-    color: white;
-    margin-bottom: 20px;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 10px 0;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
 }
+
+.home-content p {
+    font-size: 1.1rem;
+    margin: 20px 0 30px;
+    opacity: 0.8;
+}
+
+.home-content span {
+    color: var(--main-color);
+}
+
+/* Botão CV */
+.btn-cv {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--main-color);
+    border-radius: 40px;
+    box-shadow: 0 0 10px var(--main-color);
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: .5s ease;
+}
+
+.btn-cv:hover {
+    box-shadow: none;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+}
+
+/* Ícones Sociais */
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--main-color);
+    margin-right: 15px;
+    margin-bottom: 30px;
+    transition: .5s ease;
+}
+
+.social-media a:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--main-color);
+}
+
+/* Imagem de Perfil */
+.home-img {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.home-img img {
+    width: 300px; 
+    border-radius: 50%;
+    border: 4px solid var(--main-color);
+    box-shadow: 0 0 20px var(--main-color);
+    cursor: pointer;
+    transition: .4s ease;
+}
+
+.home-img img:hover {
+    box-shadow: 0 0 40px var(--main-color),
+                0 0 80px var(--main-color);
+}
+
+/* --- Seção Projetos --- */
 .projetos {
-    padding: 80px 10%; 
     background-color: #111; 
     text-align: center; 
 }
@@ -30,27 +155,129 @@ body {
 .titulo-secao {
     font-size: 2.5rem;
     margin-bottom: 3rem;
+    text-align: center;
 }
 
 .titulo-secao span {
-    color: #007BFF; 
+    color: var(--main-color); 
 }
+
 .projetos-container {
     display: flex;         
     justify-content: center; 
-    align-items: stretch;  
+    align-items: stretch; 
     flex-wrap: wrap;     
     gap: 2rem;             
 }
+
 .projeto-card {
-    flex-basis: 320px; 
-    flex-grow: 1;      
+    flex: 1 1 300px;
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.carousel img{
-    width: 90px;
-    height: 600px;
-    margin: 50px;
-    border: 4px solid blue;
-    border-radius: 16px;
+.projeto-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--main-color);
+}
+
+.projeto-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color: #333;
+}
+
+.projeto-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.projeto-card p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.btn-projeto {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    align-self: flex-start;
+    transition: background 0.3s;
+}
+
+.btn-projeto:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* --- Seção Carrossel (Galeria) --- */
+.carousel-section {
+    padding: 50px 10%;
+}
+
+.carousel-inner {
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+    border: 2px solid var(--main-color);
+}
+
+.carousel-item img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+/* Keyframes de Animação */
+@keyframes slideRight {
+    0% { transform: translateX(-100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideBottom {
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* --- Responsividade (Mobile) --- */
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 120px;
+    }
+    .home-content {
+        text-align: center;
+    }
+    .social-media a {
+        margin: 0 8px 20px 8px;
+    }
+    .btn-projeto {
+        align-self: center;
+    }
+    .projeto-card p {
+        text-align: center;
+    }
 }
