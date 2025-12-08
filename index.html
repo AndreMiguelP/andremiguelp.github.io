@@ -29,6 +29,7 @@
                     <li class="nav-item"><a class="nav-link active" href="#home">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projetos">Portfólio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#carousel-section">Galeria</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
                 </ul>
             </div>
         </div>
@@ -65,14 +66,14 @@
                 <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Projeto Java">
                 <h3>Agenda em Java</h3>
                 <p>Sistema de gerenciamento de contatos desenvolvido em Java, focado em lógica de POO e testes unitários com JUnit.</p>
-                <a href="#" class="btn-projeto">Ver no GitHub <i class='bx bxl-github'></i></a>
+                <a href="https://github.com/AndreMiguelP" class="btn-projeto" target="_blank">Ver no GitHub <i class='bx bxl-github'></i></a>
             </div>
 
             <div class="projeto-card">
                 <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Projeto SQL">
                 <h3>Banco de Dados MySQL</h3>
                 <p>Modelagem e scripts SQL criados para gerenciamento de sistemas, utilizando diagramas EER e queries otimizadas.</p>
-                <a href="#" class="btn-projeto">Ver no GitHub <i class='bx bxl-github'></i></a>
+                <a href="https://github.com/AndreMiguelP" class="btn-projeto" target="_blank">Ver no GitHub <i class='bx bxl-github'></i></a>
             </div>
 
             <div class="projeto-card">
@@ -91,10 +92,10 @@
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3527290/c6791f0f1b7b29f6304e283ac7a2cabc27c7eb0d/capsule_616x353.jpg?t=1764003551" class="d-block w-100" alt="Game 1">
+                    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3527290/c6791f0f1b7b29f6304e283ac7a2cabc27c7eb0d/capsule_616x353.jpg?t=1764003551" class="d-block w-100" alt="Game Analysis">
                 </div>
                 <div class="carousel-item">
-                     <img src="https://piluladepixel.com.br/wp-content/uploads/2025/08/Repo-Titulo.jpg.webp" class="d-block w-100" alt="Game 2">
+                     <img src="https://piluladepixel.com.br/wp-content/uploads/2025/08/Repo-Titulo.jpg.webp" class="d-block w-100" alt="Pixel Art Indie">
                 </div>
                 <div class="carousel-item">
                     <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1196590/capsule_616x353.jpg?t=1741142800" class="d-block w-100" alt="Resident Evil Village">
@@ -116,10 +117,48 @@
         </div>
     </section>
 
+    <section class="contato" id="contato">
+        <h2 class="titulo-secao">Entre em <span>Contato</span></h2>
+
+        <div class="contato-container">
+            <form id="whatsapp-form">
+                <div class="input-box">
+                    <input type="text" id="nome" placeholder="Seu Nome" required>
+                    <input type="text" id="empresa" placeholder="Assunto ou Empresa">
+                </div>
+                
+                <textarea id="mensagem" cols="30" rows="10" placeholder="Digite sua mensagem aqui..." required></textarea>
+                
+                <button type="submit" class="btn-cv" style="cursor: pointer; border:none;">
+                    Enviar no WhatsApp <i class='bx bxl-whatsapp'></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2025 André Miguel | Desenvolvido com HTML, CSS & Bootstrap.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const form = document.getElementById("whatsapp-form");
+        
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            const nome = document.getElementById("nome").value;
+            const empresa = document.getElementById("empresa").value;
+            const mensagem = document.getElementById("mensagem").value;
+
+            const telefone = "41999445747"; 
+
+            const textoFormatado = `Olá André! Me chamo *${nome}* (${empresa}).\n\n${mensagem}`;
+            const url = `https://wa.me/${telefone}?text=${encodeURIComponent(textoFormatado)}`;
+
+            window.open(url, "_blank");
+        });
+    </script>
 </body>
 </html>
