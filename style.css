@@ -324,3 +324,8 @@ footer {
         text-align: center;
     }
 }
+.multiple-text {
+    color: #ffd700;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+  }
